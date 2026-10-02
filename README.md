@@ -23,7 +23,7 @@ Agent skill + stdlib Python service to strip **multi-vendor AI provenance marks*
 
 Vendors / ecosystems (class-level): **Claude**, **Gemini / SynthID-Text**, **OpenAI** provenance surfaces, **open-LLM** Kirchenbauer-style (green-list) and keyed-Gumbel / EXP (Aaronson) marks.
 
-**Latest release:** [v0.7.0](https://github.com/guillaumemeyer/watermarks-remover/releases/tag/v0.7.0)
+**Latest release:** [v0.7.1](https://github.com/GioLucac2000/watermarks-remover/releases/tag/v0.7.1)
 
 Skill path: [`skills/remove-ai-marks/`](skills/remove-ai-marks/)  
 Service path: [`service/`](service/)  
@@ -1195,6 +1195,15 @@ make smoke                          # quick CLI smoke on fixtures
 ```
 
 ## Changelog
+
+### [v0.7.1](https://github.com/GioLucac2000/watermarks-remover/releases/tag/v0.7.1) — fork maintenance: repo references, CI trigger, and GHCR images
+
+v0.7.1 is the first release of the `GioLucac2000/watermarks-remover` fork. No cleaner or service behaviour changes.
+
+- Repository, plugin-manifest, badge, clone, SARIF `informationUri`, and security-advisory links point to `GioLucac2000/watermarks-remover` (#1). Changelog links for v0.7.0 and earlier stay on upstream.
+- Docker images publish to `ghcr.io/giolucac2000/watermarks-remover` (core, `markllm-*`, `markdiffusion-*`), and `compose.yaml` pulls from there (#1).
+- `.github/CODEOWNERS` and CONTRIBUTING.md name `@GioLucac2000` as the sole maintainer (#1).
+- CI can be started manually via `workflow_dispatch` (#2).
 
 ### [v0.7.0](https://github.com/guillaumemeyer/watermarks-remover/releases/tag/v0.7.0) — `/clean` Layer B rewrite, watermark-stealing module, audio/video watermark removal, and benchmark/tooling breadth
 
