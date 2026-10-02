@@ -8,10 +8,10 @@ _ _ _ ____ ___ ____ ____ _  _ ____ ____ _  _ ____    ____ ____ _  _ ____ _  _ __
 
 <!-- logo: figlet -d .figlet -f cybermedium -w 120 "watermarks-remover" -->
 
-[![CI](https://github.com/guillaumemeyer/watermarks-remover/actions/workflows/ci.yml/badge.svg)](https://github.com/guillaumemeyer/watermarks-remover/actions/workflows/ci.yml)
-[![Release](https://img.shields.io/github/v/release/guillaumemeyer/watermarks-remover)](https://github.com/guillaumemeyer/watermarks-remover/releases)
-[![Stars](https://img.shields.io/github/stars/guillaumemeyer/watermarks-remover)](https://github.com/guillaumemeyer/watermarks-remover/stargazers)
-[![Forks](https://img.shields.io/github/forks/guillaumemeyer/watermarks-remover)](https://github.com/guillaumemeyer/watermarks-remover/forks)
+[![CI](https://github.com/GioLucac2000/watermarks-remover/actions/workflows/ci.yml/badge.svg)](https://github.com/GioLucac2000/watermarks-remover/actions/workflows/ci.yml)
+[![Release](https://img.shields.io/github/v/release/GioLucac2000/watermarks-remover)](https://github.com/GioLucac2000/watermarks-remover/releases)
+[![Stars](https://img.shields.io/github/stars/GioLucac2000/watermarks-remover)](https://github.com/GioLucac2000/watermarks-remover/stargazers)
+[![Forks](https://img.shields.io/github/forks/GioLucac2000/watermarks-remover)](https://github.com/GioLucac2000/watermarks-remover/forks)
 
 Agent skill + stdlib Python service to strip **multi-vendor AI provenance marks** from text and files — for privacy and hygiene on content **you own**. The skill is a thin client: it drives the machinery over HTTP, so the agent host needs no Python.
 
@@ -137,7 +137,7 @@ The repository is also a Claude Code **plugin** and a single-plugin
 commands, no clone or script required:
 
 ```
-/plugin marketplace add guillaumemeyer/watermarks-remover
+/plugin marketplace add GioLucac2000/watermarks-remover
 /plugin install watermarks-remover@watermarks-remover
 ```
 
@@ -397,7 +397,7 @@ Published images (GHCR):
 
 | Image tag | Contents | Published? |
 | --- | --- | --- |
-| `ghcr.io/guillaumemeyer/watermarks-remover:<tag>` / `:latest` | Core HTTP service + all cleaners + exiftool / qpdf / c2patool | Yes |
+| `ghcr.io/giolucac2000/watermarks-remover:<tag>` / `:latest` | Core HTTP service + all cleaners + exiftool / qpdf / c2patool | Yes |
 | `…:markllm-<tag>` / `:markllm-latest` | MarkLLM text-watermark harness (Apache-2.0 upstream) | Yes |
 | `…:markdiffusion-<tag>` / `:markdiffusion-latest` | MarkDiffusion image harness (Apache-2.0 upstream) | Yes |
 | `watermarks-remover-ctrlregen:local` | CtrlRegen pixel removal — **never published** (`noai-watermark` ships no LICENSE) | Local build only |
@@ -1177,7 +1177,7 @@ CI gating already exists (`audit_dir.py`'s SARIF export, see [Coverage matrix](#
 ```yaml
 # .pre-commit-config.yaml
 repos:
-  - repo: https://github.com/guillaumemeyer/watermarks-remover
+  - repo: https://github.com/GioLucac2000/watermarks-remover
     rev: v0.5.0   # pin to a tag/commit
     hooks:
       - id: watermarks-remover-check   # fails the commit if marks are found
@@ -1275,7 +1275,7 @@ v0.7.0 brings the Layer B statistical-mark rewrite into the `/clean` service its
 
 **Distribution: plugin, hooks, and skill installs**
 
-- **The repository is now a Claude Code plugin and a single-plugin marketplace** (`.claude-plugin/plugin.json` + `marketplace.json`), so both skills install with `/plugin marketplace add guillaumemeyer/watermarks-remover` then `/plugin install watermarks-remover@watermarks-remover`, and update in place. `make plugin-validate` runs `claude plugin validate . --strict`; `tests/test_plugin_manifest.py` checks the manifests without the CLI
+- **The repository is now a Claude Code plugin and a single-plugin marketplace** (`.claude-plugin/plugin.json` + `marketplace.json`), so both skills install with `/plugin marketplace add GioLucac2000/watermarks-remover` then `/plugin install watermarks-remover@watermarks-remover`, and update in place. `make plugin-validate` runs `claude plugin validate . --strict`; `tests/test_plugin_manifest.py` checks the manifests without the CLI
 - **`install_skill.py` grew a `--target`** (`claude-code`, `claude-project`, `cowork`, `cursor`) and a `--skill` selector covering both shipped skills, plus `--list`, `--link`, and `CLAUDE_CONFIG_DIR`. The `cowork` target builds a reproducible upload bundle (`dist/<skill>.zip`, single top-level skill directory); every target validates against the Agent Skills packaging rules and the 30 MB upload limit. New `make` targets: `install-claude-code-skill`, `install-claude-code-text-skill`, `install-claude-project-skill`, `package-cowork-skill`, `package-cowork-text-skill`
 - **Deterministic auto-cleaning via a `PostToolUse` hook** (`hooks/hooks.json` + `service/scripts/hook_written_file.py`): after the agent writes a file the harness runs the hook whether or not the model cooperates. `check` (default) reports marks to the model; `clean` strips them in place and tells the model the file moved, swapping only on a real difference so clean files keep their mtime. Mode comes from the plugin's `hook_mode` setting or `WATERMARKS_HOOK_MODE`; detection reuses `audit_lib.scan_file` / `is_actionable`, so the hook, the pre-commit gate, and the CI SARIF export agree. A hook still cannot rewrite the assistant's chat message — no such hook point exists — so that path stays best-effort
 - **Pre-commit hook integration** for staged-file checking/cleaning (#138); lightweight Cursor text skill (#35); `clean-user-facing-text`'s description no longer names Cursor as the only host

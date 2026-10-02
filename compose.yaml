@@ -21,7 +21,7 @@ services:
     build:
       context: service
       dockerfile: Dockerfile
-    image: ghcr.io/guillaumemeyer/watermarks-remover:latest
+    image: ghcr.io/giolucac2000/watermarks-remover:latest
     ports:
       - "127.0.0.1:8765:8765"
     environment:
@@ -46,7 +46,7 @@ services:
     build:
       context: service
       dockerfile: Dockerfile.markllm
-    image: ghcr.io/guillaumemeyer/watermarks-remover:markllm-latest
+    image: ghcr.io/giolucac2000/watermarks-remover:markllm-latest
     # One-shot CLI: `up` just confirms the image; run real jobs with
     # `docker compose run --rm wr-markllm detect /data/wm.txt --scheme kgw`.
     command: ["--help"]
@@ -84,7 +84,7 @@ services:
     build:
       context: service
       dockerfile: Dockerfile.markllm
-    image: ghcr.io/guillaumemeyer/watermarks-remover:markllm-latest
+    image: ghcr.io/giolucac2000/watermarks-remover:markllm-latest
     entrypoint: ["python3"]
     command: ["/app/synthid_text_server.py", "--host", "0.0.0.0", "--port", "8767"]
     read_only: true
@@ -105,7 +105,7 @@ services:
     build:
       context: service
       dockerfile: Dockerfile.markdiffusion
-    image: ghcr.io/guillaumemeyer/watermarks-remover:markdiffusion-latest
+    image: ghcr.io/giolucac2000/watermarks-remover:markdiffusion-latest
     command: ["--help"]
     read_only: true
     tmpfs:

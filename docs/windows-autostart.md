@@ -7,7 +7,7 @@ Run the service silently in the background on every login, without a terminal wi
 Replace `<path-to-clone>` below with wherever you want the repo to live (e.g. `C:\watermarks-remover` or `C:\Users\<you>\watermarks-remover`). Use the same path consistently in every step below.
 
 ```powershell
-git clone https://github.com/guillaumemeyer/watermarks-remover.git <path-to-clone>
+git clone https://github.com/GioLucac2000/watermarks-remover.git <path-to-clone>
 ```
 
 ## 2. Create a silent launcher script

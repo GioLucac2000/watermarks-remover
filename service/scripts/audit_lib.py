@@ -335,7 +335,7 @@ def format_sarif(report: dict[str, Any]) -> dict[str, Any]:
                     "driver": {
                         "name": "watermarks-remover",
                         "version": "0.1.0",
-                        "informationUri": "https://github.com/guillaumemeyer/watermarks-remover",
+                        "informationUri": "https://github.com/GioLucac2000/watermarks-remover",
                         "rules": rules,
                     }
                 },
