@@ -1,6 +1,6 @@
 # All changes need review from a code owner before merge.
 # Only code-owner approvals count toward the required review on main.
-* @GioLucac2000 @bentalay @poorvith-mp
+* @GioLucac2000
 
 # Security-sensitive surface stays explicitly with the maintainer:
 # CI/CD workflows, dependency automation, and the security policy.
