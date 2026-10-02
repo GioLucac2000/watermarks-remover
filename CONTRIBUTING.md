@@ -11,7 +11,7 @@ focused PRs land fastest.
 | Open issues | Anyone |
 | Suggest a release | Anyone (use the **Release suggestion** issue template) |
 | Open pull requests | Anyone (fork the repo) |
-| Approve and merge pull requests | Maintainer only (`@guillaumemeyer`) |
+| Approve and merge pull requests | Maintainer only (`@GioLucac2000`) |
 
 `main` is protected. A change needs a pull request, a passing **CI** check
 (`test`), and an approving review from the code owner before merge. Only the

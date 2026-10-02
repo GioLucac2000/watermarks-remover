@@ -2,7 +2,7 @@
   "name": "watermarks-remover",
   "owner": {
     "name": "watermarks-remover contributors",
-    "url": "https://github.com/guillaumemeyer/watermarks-remover"
+    "url": "https://github.com/GioLucac2000/watermarks-remover"
   },
   "description": "Anti-detection hygiene skills: invisible Unicode, statistical text watermarks, and C2PA/EXIF/XMP provenance metadata.",
   "plugins": [
@@ -14,10 +14,10 @@
       "version": "0.7.0",
       "author": {
         "name": "watermarks-remover contributors",
-        "url": "https://github.com/guillaumemeyer/watermarks-remover"
+        "url": "https://github.com/GioLucac2000/watermarks-remover"
       },
-      "homepage": "https://github.com/guillaumemeyer/watermarks-remover#readme",
-      "repository": "https://github.com/guillaumemeyer/watermarks-remover",
+      "homepage": "https://github.com/GioLucac2000/watermarks-remover#readme",
+      "repository": "https://github.com/GioLucac2000/watermarks-remover",
       "license": "MIT",
       "category": "content",
       "keywords": [
